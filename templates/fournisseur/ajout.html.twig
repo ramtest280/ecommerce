@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout des fornisseurs
+{% endblock %}
+
+{% block body %}
+	{% include 'partials/navbar.html.twig' %}
+	<h1 class="text-center mt-5">Creation de Fournisseurs</h1>
+	<div class="container">
+
+		{{ form_start(form) }}
+		<div class="md-4" style="margin-left: 27em;">
+			{{ form_widget(form.anarana) }}
+			<button class="btn btn-primary">{{ button_label|default('Fournisseur-eo') }}</button>
+		</div>
+
+
+		{{ form_end(form) }}
+		<center>
+			<a href="{{ path('app_client_index') }}">Voir la liste</a>
+		</center>
+
+	</div>
+
+{% endblock %}

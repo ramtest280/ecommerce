@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des clients
+{% endblock %}
+
+{% block body %}
+	{% include 'partials/navbar.html.twig' %}
+	<h1 class="text-center mt-3 mb-3">Liste des clients</h1>
+	<div class="container">
+		<table class="table table-striped ">
+			<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Anarana</th>
+					<th scope="col">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for client in clients %}
+					<tr>
+						<td scope="row">{{ client.id }}</td>
+						<td>{{ client.anarana }}</td>
+						<td class="justify-content-end">
+							<a href="#" class="btn btn-info">Informations</a>
+
+							<a href="#" class="btn btn-success">Modifier</a>
+						</td>
+
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+
+	<a href="{{ path('app_client_new') }}">Creation Clients</a>
+{% endblock %}

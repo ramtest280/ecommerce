@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des clients
+{% endblock %}
+
+{% block body %}
+	{% include 'partials/navbar.html.twig' %}
+	<h1 class="text-center mt-3 mb-3">Liste des Fournisseurs</h1>
+	<div class="container">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Anarana</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				{% for fournisseur in Fournisseur %}
+					<tr>
+						<td scope="row">{{ fournisseur.id }}</td>
+						<td>{{ fournisseur.anarana }}</td>
+
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="3">no records found</td>
+					</tr>
+				{% endfor %}
+
+			</tbody>
+		</table>
+	</div>
+
+
+	<a href="{{ path('app_client_new') }}">Creation Clients</a>
+{% endblock %}
