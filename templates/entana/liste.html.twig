@@ -1,56 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EntanaController!{% endblock %}
+{% block title %}Hello EntanaController!
+{% endblock %}
 
 {% block body %}
-{% include 'partials/navbar.html.twig' %}
-<h1 class="text-center mt-3 mb-3">Liste des Entana</h1>
-    <div class="container">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">trondro</th>
-                    <th scope="col">lanjany (KG)</th>
-                    <th scope="col">Vidin'iray (AR)</th>
-                    <th scope="col">Total (AR)</th>
-                    <th scope="col">Avance</th>
-                    <th scope="col">Reste</th>
-                    <th scope="col">Client</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for product in entana %}
-                <tr>
-                    <td scope="row">{{ product.id }}</td>
-                    <td>{{ product.trondro}}</td>
-                    <td>{{ product.lanjany}}</td>
-                    <td>{{ product.vidiniray}}</td>
-                    <td>{{ product.total}}</td>
-                    <td>{{ product.avance}}</td>
-                    <td>{{ product.reste}}</td>
-                    <td>{{ product.client}}</td>
-                    <td>{{ product.createdAt | date('d-m-Y')}}</td>
-                    <td>
-                        <a href="#" class="btn btn-info">Informations</a>
-                    
-                        <a href="#" class="btn btn-success">Modifier</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="3">no records found</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
-<a href="{{ path('liste_entana')}}">Revenir</a>
+	{% include 'partials/navbar.html.twig' %}
+	<h1 class="text-center mt-3 mb-3">Liste des Entana</h1>
+	<div class="container">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">trondro</th>
+					<th scope="col">lanjany (KG)</th>
+					<th scope="col">Vidin'iray (AR)</th>
+					<th scope="col">Total (AR)</th>
+					<th scope="col">Avance</th>
+					<th scope="col">Reste</th>
+					<th scope="col">Client</th>
+					<th scope="col">Date</th>
+					<th scope="col">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for product in entana %}
+					<tr>
+						<td scope="row">{{ product.id }}</td>
+						<td>{{ product.trondro}}</td>
+						<td>{{ product.lanjany}}</td>
+						<td>{{ product.vidiniray}}</td>
+						<td>{{ product.total}}</td>
+						<td>{{ product.avance}}</td>
+						<td>{{ product.reste}}</td>
+						<td>{{ product.client}}</td>
+						<td>{{ product.createdAt | date('d-m-Y')}}</td>
+						<td>
+							<a href="#" class="btn btn-info">Informations</a>
 
-    
+							<a href="{{ path('editer_entana' , {'id': entana.id }) }}" class="btn btn-success">Modifier</a>
 
+
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="3">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<a href="{{ path('liste_entana')}}">Revenir</a>
 
 
 {% endblock %}

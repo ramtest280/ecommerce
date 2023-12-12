@@ -11,10 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/livraison")
+ */
 class LivraisonController extends AbstractController
 {
     /**
-     * @Route("/livraison", name="app_livraison")
+     * @Route("/", name="creation_livraison")
      */
     public function index(Request $request, EntityManagerInterface $em): Response
     {
@@ -22,7 +25,7 @@ class LivraisonController extends AbstractController
         $form = $this->createForm(LivraisonType::class, $livraison);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $livraison->setCreatedAt(new \DateTimeImmutable());
             $em->persist($livraison);
             $em->flush();
@@ -36,12 +39,12 @@ class LivraisonController extends AbstractController
     }
 
     /**
-     * @Route("/livraison/liste", name="liste_livraison")
+     * @Route("/liste", name="liste_livraison")
      */
     public function listeLivraison(LivraisonRepository $livraisonRepository): Response
     {
         $livraison = $livraisonRepository->findAll();
-        
+
         return $this->render('livraison/liste.html.twig', [
             'livraison' => $livraison,
         ]);

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification des fornisseurs
+{% endblock %}
+
+{% block body %}
+
+	{{ form_start(form) }}
+	<div class="md-4" style="margin-left: 27em;">
+		{{ form_widget(form.anarana) }}
+		<button class="btn btn-primary">{{ button_label|default('Fournisseur-eo') }}</button>
+	</div>
+	{{ form_end(form) }}
+
+{% endblock %}

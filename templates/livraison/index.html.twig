@@ -1,42 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LivraisonController!{% endblock %}
+{% block title %}Hello LivraisonController!
+{% endblock %}
 
 {% block body %}
-    {% include 'partials/navbar.html.twig' %}
-<a href="{{ path('creation_trondro') }}"> Mamorona trondro</a>
-<h1 class="text-center mt-3 mb-3">Calcul des entana</h1>
-    <div class="container ml-10">
-    {{ form_start(form) }}
-    <div class="form-container">
-        <div class="mb-3">
-                <label for="">Sofera</label>
-                {{ form_widget(form.sofera)}}
-        </div>
+	{% include 'partials/navbar.html.twig' %}
+	<a href="{{ path('creation_trondro') }}">
+		Mamorona trondro</a>
+	<h1 class="text-center mt-3 mb-3">Calcul des entana</h1>
+	<div class="container ml-10">
+		{{ form_start(form) }}
+		<div class="form-container">
+			<div class="mb-3">
+				<label for="">Sofera</label>
+				{{ form_widget(form.sofera)}}
+			</div>
 
-        <div class="mb-3">
-                <label for="">Entana</label>
-                {{ form_widget(form.entana)}}
+			<div class="mb-3">
+				<label for="">Entana</label>
+				{{ form_widget(form.entana)}}
 
-        </div>
+			</div>
 
-        <div class="mb-3">
-                <label for="">Frais</label>
-                {{ form_widget(form.frais, { 'attr': {'style': 'border-radius: 5px; margin-left: 10px'} })}}
-        </div>
+			<div class="mb-3">
+				<label for="">Frais</label>
+				{{ form_widget(form.frais, { 'attr': {'style': 'border-radius: 5px; margin-left: 10px'} })}}
+			</div>
 
-        <div class="mb-3">
-                <label for="">Permis</label>
-                {{ form_widget(form.permis)}}
-        </div>
+			<div class="mb-3">
+				<label for="">Permis</label>
+				{{ form_widget(form.permis)}}
+			</div>
 
-        <div class="mb-3">
-                <label for="">Fournisseur</label>
-                {{ form_widget(form.fournisseur)}}
-        </div>
-    </div>
-    
-    <button type="submit" class="btn btn-primary">Entaneo</button>
-    {{ form_end(form) }}
-    </div>
+			<div class="mb-3">
+				<label for="">Fournisseur</label>
+				{{ form_widget(form.fournisseur)}}
+			</div>
+		</div>
+
+		<button type="submit" class="btn btn-primary">Entaneo</button>
+		{{ form_end(form) }}
+	</div>
 {% endblock %}

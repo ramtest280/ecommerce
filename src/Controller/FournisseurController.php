@@ -29,22 +29,42 @@ class FournisseurController extends AbstractController
             $em->persist($fournisseur);
             $em->flush();
 
-            $this->redirectToRoute('liste_fournisseur');
+            return $this->redirectToRoute('liste_fournisseur', [], Response::HTTP_SEE_OTHER);
         }
 
 
         return $this->render('fournisseur/ajout.html.twig', [
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ]);
     }
 
     /**
-     * @Route("/", name="liste_fornisseur")
+     * @Route("/", name="liste_fournisseur")
      */
     public function liste(FournisseurRepository $fournisseurRepository): Response
     {
         return $this->render('fournisseur/liste.html.twig', [
             'Fournisseur' => $fournisseurRepository->findAll()
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/editer", name="editer_fournisseur", methods={"GET", "POST"})
+     */
+    public function edit(Request $request, Fournisseur $fournisseur, FournisseurRepository $fournisseurRepository): Response
+    {
+        $form = $this->createForm(FournisseurType::class, $fournisseur);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $fournisseurRepository->add($fournisseur, true);
+
+            return $this->redirectToRoute('liste_fournisseur', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('fournisseur/edit.html.twig', [
+            'Fournisseur' => $fournisseur,
+            'form' => $form,
         ]);
     }
 }

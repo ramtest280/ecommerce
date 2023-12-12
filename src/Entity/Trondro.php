@@ -6,6 +6,7 @@ use App\Repository\TrondroRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @UniqueEntity("anarana")
  * @ORM\Entity(repositoryClass=TrondroRepository::class)
  */
 class Trondro
@@ -21,7 +22,7 @@ class Trondro
      * @ORM\Column(type="string", length=255)
      */
     private $anarana;
-    
+
     public function __toString()
     {
         return $this->getAnarana();

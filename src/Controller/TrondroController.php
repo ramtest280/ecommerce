@@ -17,8 +17,20 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class TrondroController extends AbstractController
 {
+
     /**
-     * @Route("/ajouter", name="creation_trondro")
+     * @Route("/", name="trondro")
+     */
+    public function listTrondro(TrondroRepository $trondroRepository): Response
+    {
+        return $this->render('trondro/liste.html.twig', [
+            'Trondro' => $trondroRepository->findAll(),
+        ]);
+    }
+
+
+    /**
+     * @Route("/ajouter", name="creation_trondro", methods={"GET", "POST"})
      */
     public function creationTrondro(Request $request, EntityManagerInterface $em): Response
     {
@@ -30,21 +42,11 @@ class TrondroController extends AbstractController
             $em->persist($trondro);
             $em->flush();
 
-            $this->redirectToRoute('liste_trondro', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('trondro', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('trondro/creer.html.twig', [
+        return $this->render('trondro/ajout.html.twig', [
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/", name="liste_trondro")
-     */
-    public function listTrondro(TrondroRepository $trondroRepository): Response
-    {
-        return $this->render('trondro/index.html.twig', [
-            'Trondro' => $trondroRepository->findAll(),
         ]);
     }
 }
