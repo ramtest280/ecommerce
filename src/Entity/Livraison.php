@@ -45,7 +45,7 @@ class Livraison
     private $createdAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Fournisseur::class)
+     * @ORM\OneToOne(targetEntity=Fournisseur::class)
      */
     private $fournisseur;
 

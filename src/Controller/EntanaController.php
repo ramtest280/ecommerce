@@ -8,6 +8,7 @@ use App\Form\EntanaType;
 use App\Repository\EntanaRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -51,7 +52,7 @@ class EntanaController extends AbstractController
     /**
      * @Route("/entana/liste", name="liste_entana")
      */
-    public function listeEntana(EntityManagerInterface $em, EntanaRepository $entanaRepository)
+    public function listeEntana(EntanaRepository $entanaRepository)
     {
         $entana = $entanaRepository->findAll();
 

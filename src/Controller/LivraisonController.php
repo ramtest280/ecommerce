@@ -27,6 +27,7 @@ class LivraisonController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $livraison->setCreatedAt(new \DateTimeImmutable());
+
             $em->persist($livraison);
             $em->flush();
 

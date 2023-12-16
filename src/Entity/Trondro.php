@@ -6,7 +6,6 @@ use App\Repository\TrondroRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @UniqueEntity("anarana")
  * @ORM\Entity(repositoryClass=TrondroRepository::class)
  */
 class Trondro
