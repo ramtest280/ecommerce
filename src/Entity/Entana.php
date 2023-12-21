@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\EntanaRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=EntanaRepository::class)
@@ -63,7 +64,7 @@ class Entana
         return $this->id;
     }
 
-    
+
 
     public function getLanjany(): ?int
     {

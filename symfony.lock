@@ -38,6 +38,12 @@
             "migrations/.gitignore"
         ]
     },
+    "php-flasher/flasher-notyf-symfony": {
+        "version": "v1.15.8"
+    },
+    "php-flasher/flasher-symfony": {
+        "version": "v1.15.8"
+    },
     "phpunit/phpunit": {
         "version": "9.6",
         "recipe": {
@@ -62,6 +68,30 @@
         },
         "files": [
             "config/packages/sensio_framework_extra.yaml"
+        ]
+    },
+    "sensiolabs/security-checker": {
+        "version": "6.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "4.0",
+            "ref": "160c9b600564faa1224e8f387d49ef13ceb8b793"
+        },
+        "files": [
+            "config/packages/security_checker.yaml"
+        ]
+    },
+    "symfony/apache-pack": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "efb318193e48384eb5c5aadff15396ed698f8ffc"
+        },
+        "files": [
+            "public/.htaccess"
         ]
     },
     "symfony/console": {

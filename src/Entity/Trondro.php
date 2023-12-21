@@ -21,7 +21,7 @@ class Trondro
      * @ORM\Column(type="string", length=255)
      */
     private $anarana;
-    
+
     public function __toString()
     {
         return $this->getAnarana();

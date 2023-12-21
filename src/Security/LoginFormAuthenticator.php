@@ -19,7 +19,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
-    public const LOGIN_ROUTE = 'liste_trondro';
+    public const LOGIN_ROUTE = 'trondro';
 
     private $urlGenerator;
 

@@ -1,13 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Client{% endblock %}
+{% block title %}Editer Client
+{% endblock %}
 
 {% block body %}
-    <h1>Modification des clients</h1>
+	{% include 'partials/navbar.html.twig' %}
 
-    {{ include('client/_form.html.twig', {'button_label': 'Modifier'}) }}
+	<h1 class="text-center mt-5">Modification de clients</h1>
+	<div class="container">
 
-    <a href="{{ path('app_client_index') }}">Consulter la liste</a>
+		{{ form_start(form) }}
+		<div class="md-4" style="margin-left: 27em;">
+			{{ form_widget(form.anarana) }}
+			<button class="btn btn-primary">{{ button_label|default('Editer') }}</button>
+			<button class="btn btn-primary">{{ button_label|default('Supprimer') }}</button>
 
-    {{ include('client/_delete_form.html.twig') }}
-{% endblock %}
+		</div>
+
+
+		{{ form_end(form) }}
+
+
+		<a href="{{ path('app_client_index') }}" class="btn">Consulter la liste</a>
+
+		{{ include('client/_delete_form.html.twig') }}
+	{% endblock %}

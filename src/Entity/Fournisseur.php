@@ -4,8 +4,10 @@ namespace App\Entity;
 
 use App\Repository\FournisseurRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
+ * @UniqueEntity("anarana")
  * @ORM\Entity(repositoryClass=FournisseurRepository::class)
  */
 class Fournisseur

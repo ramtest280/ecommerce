@@ -20,7 +20,7 @@ class ClientController extends AbstractController
      */
     public function index(ClientRepository $clientRepository): Response
     {
-        return $this->render('client/index.html.twig', [
+        return $this->render('client/liste.html.twig', [
             'clients' => $clientRepository->findAll(),
         ]);
     }
@@ -36,11 +36,11 @@ class ClientController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $clientRepository->add($client, true);
-
+            $this->addFlash('success', 'Client ajouté avec succes');
             return $this->redirectToRoute('app_client_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('client/new.html.twig', [
+        return $this->renderForm('client/ajout.html.twig', [
             'client' => $client,
             'form' => $form,
         ]);
@@ -51,7 +51,7 @@ class ClientController extends AbstractController
      */
     public function show(Client $client): Response
     {
-        return $this->render('client/show.html.twig', [
+        return $this->render('client/liste.html.twig', [
             'client' => $client,
         ]);
     }
@@ -66,7 +66,7 @@ class ClientController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $clientRepository->add($client, true);
-
+            $this->addFlash('notice', 'Client modifiée avec succes');
             return $this->redirectToRoute('app_client_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -77,7 +77,7 @@ class ClientController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_client_delete", methods={"POST"})
+     * @Route("/{id}/supprimer/", name="app_client_delete", methods={"POST"})
      */
     public function delete(Request $request, Client $client, ClientRepository $clientRepository): Response
     {
