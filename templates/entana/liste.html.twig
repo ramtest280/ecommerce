@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EntanaController!
+{% block title %}Liste des Entana
 {% endblock %}
 
 {% block body %}
@@ -37,7 +37,7 @@
 						<td>
 							<a href="#" class="btn btn-info">Informations</a>
 
-							<a href="{{ path('editer_entana' , {'id': entana.id }) }}" class="btn btn-success">Modifier</a>
+							<a href="{{ path('editer_entana' , {'id': product.id }) }}" class="btn btn-success">Modifier</a>
 
 
 						</td>

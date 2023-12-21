@@ -71,6 +71,16 @@ class EntanaController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entanaRepository->add($entana, true);
+            // Calcul Total 
+            // Total = Lanjany * Vidin'Iray
+            $entana->setTotal($entana->getLanjany() * $entana->getVidiniray());
+
+            // Calcul Reste 
+            // Reste = Total - Avance
+            $entana->setReste($entana->getTotal() - $entana->getAvance());
+
+            // Facon d'automatiser la date de creation
+            $entana->setCreatedAt(new \DateTimeImmutable());
             return $this->redirectToRoute('liste_entana');
         }
 

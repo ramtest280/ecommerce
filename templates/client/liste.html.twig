@@ -6,8 +6,12 @@
 {% block body %}
 	{% include 'partials/navbar.html.twig' %}
 	<h1 class="text-center mt-3 mb-3">Liste des clients</h1>
-	<div class="container">
-		<table class="table table-striped ">
+	<center>
+		<a href="{{ path('app_client_new') }}">Ajouter un client</a>
+	</center>
+
+	<div class="container mx-5">
+		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th scope="col">Anarana</th>
@@ -21,7 +25,11 @@
 						<td class="justify-content-end">
 							<a href="#" class="btn btn-info">Informations</a>
 
-							<a href="#" class="btn btn-success">Modifier</a>
+							<a href="{{ path('app_client_edit', {'id': client.id })}}" class="btn btn-success">Modifier</a>
+
+							<a href="{{ path('app_client_delete', {'id': client.id })}}" class="btn btn-danger" onsubmit="Voulez-vous vraiment supprimer le client">Supprimer</a>
+
+
 						</td>
 
 					</tr>
@@ -31,5 +39,4 @@
 	</div>
 
 
-	<a href="{{ path('app_client_new') }}">Creation Clients</a>
 {% endblock %}

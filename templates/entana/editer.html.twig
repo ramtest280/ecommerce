@@ -4,14 +4,47 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Modification des entana</h1>
+	{% include 'partials/navbar.html.twig' %}
+	<h1 class="text-center mt-3 mb-10">Modification des entana</h1>
+	<div class="container mt-4" style="margin-left : 27em">
+		<div class="mx-10">
+			{{ form_start(form) }}
+			<div class="form-container">
+				<div class="mb-3">
+					<label for="" class="me-5">Trondro</label>
+					{{ form_widget(form.trondro)}}
+				</div>
 
-	{{ form_start(form) }}
-	<div class="md-4" style="margin-left: 27em;">
-		{{ form_widget(form) }}
-		<button class="btn btn-primary">{{ button_label|default('Fournisseur-eo') }}</button>
+				<div class="mb-3">
+					<label for="" class="me-5">lanjany</label>
+					{{ form_widget(form.lanjany)}}
+
+				</div>
+
+				<div class="mb-3">
+					<label for="">Vidin'Iray</label>
+					{{ form_widget(form.vidiniray, { 'attr': {'style': 'margin-left: 15px'} })}}
+				</div>
+
+				<div class="mb-3">
+					<label for="">Avance</label>
+
+					{{ form_widget(form.avance , { 'attr': {'style': 'margin-left: 29px;'} })}}
+
+				</div>
+
+				<div class="mb-3">
+					<label class="me-5">Client</label>
+
+					{{ form_widget(form.client)}}
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-primary" style="margin-left : 15em">Entaneo</button>
+			{{ form_end(form) }}
+
+		</div>
 	</div>
-	{{ form_end(form) }}
 
 
 	<a href="{{ path('liste_entana') }}">Consulter la liste</a>

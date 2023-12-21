@@ -7,6 +7,7 @@ use App\Entity\Livraison;
 use Doctrine\DBAL\Types\BooleanType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,7 +21,7 @@ class LivraisonType extends AbstractType
             ->add('sofera', TextType::class)
             ->add('entana', NumberType::class)
             ->add('frais', NumberType::class)
-            ->add('permis', BooleanType::class)
+
             ->add('fournisseur', EntityType::class, [
                 'class' => Fournisseur::class,
             ]);
