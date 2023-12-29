@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\Livraison;
+use App\Entity\Delivery;
+use App\Form\DeliveryType;
 use App\Form\LivraisonType;
-use App\Repository\LivraisonRepository;
+use App\Repository\DeliveryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,18 +22,19 @@ class LivraisonController extends AbstractController
      */
     public function index(Request $request, EntityManagerInterface $em): Response
     {
-        $livraison = new Livraison();
-        $form = $this->createForm(LivraisonType::class, $livraison);
+        $delivery = new Delivery();
+        $form = $this->createForm(DeliveryType::class, $delivery);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $livraison->setCreatedAt(new \DateTimeImmutable());
+            $delivery->setCreatedAt(new \DateTimeImmutable());
 
-            $em->persist($livraison);
+            $em->persist($delivery);
             $em->flush();
 
             return $this->redirectToRoute('liste_livraison');
         }
+
 
         return $this->render('livraison/index.html.twig', [
             'form' => $form->createView(),
@@ -42,12 +44,12 @@ class LivraisonController extends AbstractController
     /**
      * @Route("/liste", name="liste_livraison")
      */
-    public function listeLivraison(LivraisonRepository $livraisonRepository): Response
+    public function listeLivraison(DeliveryRepository $deliveryRepository): Response
     {
-        $livraison = $livraisonRepository->findAll();
+        $delivery = $deliveryRepository->findAll();
 
         return $this->render('livraison/liste.html.twig', [
-            'livraison' => $livraison,
+            'livraison' => $delivery,
         ]);
     }
 }

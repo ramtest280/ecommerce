@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Client;
 use App\Entity\Entana;
 use App\Entity\Produit;
 use App\Form\EntanaType;
@@ -41,6 +42,7 @@ class EntanaController extends AbstractController
             $em->persist($entana);
             $em->flush();
 
+            $this->addFlash('success', 'Entana calculée avec succes');
             return $this->redirectToRoute('liste_entana');
         }
 
@@ -66,11 +68,13 @@ class EntanaController extends AbstractController
      */
     public function editer(Entana $entana, Request $request, EntanaRepository $entanaRepository): Response
     {
+
         $form = $this->createForm(EntanaType::class, $entana);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entanaRepository->add($entana, true);
+
             // Calcul Total 
             // Total = Lanjany * Vidin'Iray
             $entana->setTotal($entana->getLanjany() * $entana->getVidiniray());
@@ -81,6 +85,8 @@ class EntanaController extends AbstractController
 
             // Facon d'automatiser la date de creation
             $entana->setCreatedAt(new \DateTimeImmutable());
+
+            $this->addFlash('notice', 'Entana modifiée avec succes');
             return $this->redirectToRoute('liste_entana');
         }
 
