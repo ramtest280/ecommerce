@@ -18,14 +18,32 @@ class EntanaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('lanjany', NumberType::class,)
-            ->add('vidiniray', MoneyType::class)
-            ->add('avance', MoneyType::class)
+            ->add('lanjany', NumberType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+            ->add('vidiniray', MoneyType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+            ->add('avance', MoneyType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
             ->add('trondro', EntityType::class, [
                 'class' => Trondro::class,
+                'attr' => [
+                    'class' => 'form-control'
+                ]
             ])
             ->add('client', EntityType::class, [
                 'class' => Client::class,
+                'attr' => [
+                    'class' => 'form-control'
+                ]
             ]);
     }
 

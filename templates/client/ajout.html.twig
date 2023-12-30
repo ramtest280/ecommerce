@@ -9,16 +9,15 @@
 	<div class="container">
 
 		{{ form_start(form) }}
-		<div class="md-4" style="margin-left: 27em;">
+		<div class="form-group mt-3">
 			{{ form_widget(form.anarana) }}
-			<button class="btn btn-primary">{{ button_label|default('Client-eo') }}</button>
+			<div class="text-center">
+				<button class="btn btn-primary mt-4 mx-auto">{{ button_label|default('Client-eo') }}</button>
+				<a href="{{ path('app_client_index') }}" class="btn btn-info font-weight-bold mt-4">Voir la liste</a>
+
+			</div>
 		</div>
-
-
 		{{ form_end(form) }}
-		<center>
-			<a href="{{ path('app_client_index') }}">Voir la liste</a>
-		</center>
 
 	</div>
 

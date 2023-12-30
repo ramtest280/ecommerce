@@ -10,7 +10,7 @@
 
 		<div class="mx-3">
 			{{ form_start(form) }}
-			<div class="form-container">
+			<div class="form-group">
 				<div class="mb-3">
 					<label for="" class="me-5">Trondro</label>
 					{{ form_widget(form.trondro)}}
@@ -24,13 +24,12 @@
 
 				<div class="mb-3">
 					<label for="">Vidin'Iray</label>
-					{{ form_widget(form.vidiniray, { 'attr': {'style': 'margin-left: 15px'} })}}
+					{{ form_widget(form.vidiniray)}}
 				</div>
 
 				<div class="mb-3">
 					<label for="">Avance</label>
-
-					{{ form_widget(form.avance , { 'attr': {'style': 'margin-left: 29px;'} })}}
+					{{ form_widget(form.avance)}}
 
 				</div>
 
@@ -40,7 +39,9 @@
 				</div>
 			</div>
 
-			<button type="submit" class="btn btn-primary mt-3" style="margin-left : 15em">Entaneo</button>
+			<button type="submit" class="btn btn-primary mt-3" style="margin-left : 15em">
+				<i class="fa-solid fa-check"></i>Entaneo
+			</button>
 			{{ form_end(form) }}
 
 		</div>

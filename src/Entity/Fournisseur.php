@@ -24,6 +24,11 @@ class Fournisseur
      */
     private $anarana;
 
+    public function __toString()
+    {
+        return $this->getAnarana();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

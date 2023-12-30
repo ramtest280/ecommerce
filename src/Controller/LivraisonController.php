@@ -49,7 +49,7 @@ class LivraisonController extends AbstractController
         $delivery = $deliveryRepository->findAll();
 
         return $this->render('livraison/liste.html.twig', [
-            'livraison' => $delivery,
+            'delivery' => $delivery,
         ]);
     }
 }

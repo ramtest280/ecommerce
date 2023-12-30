@@ -23,21 +23,14 @@ class Delivery
     private $livreur;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Entana::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=trondro::class)
      */
-    private $entana;
+    private $trondro;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Fournisseur::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToOne(targetEntity=fournisseur::class, cascade={"persist", "remove"})
      */
     private $fournisseur;
-
-    /**
-     * @ORM\Column(type="datetime_immutable")
-     */
-    private $createdAt;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -47,12 +40,17 @@ class Delivery
     /**
      * @ORM\Column(type="integer")
      */
-    private $frais;
+    private $colis;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $colis;
+    private $frais;
+
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private $createdAt;
 
     public function getId(): ?int
     {
@@ -71,38 +69,26 @@ class Delivery
         return $this;
     }
 
-    public function getEntana(): ?Entana
+    public function getTrondro(): ?trondro
     {
-        return $this->entana;
+        return $this->trondro;
     }
 
-    public function setEntana(Entana $entana): self
+    public function setTrondro(?trondro $trondro): self
     {
-        $this->entana = $entana;
+        $this->trondro = $trondro;
 
         return $this;
     }
 
-    public function getFournisseur(): ?Fournisseur
+    public function getFournisseur(): ?fournisseur
     {
         return $this->fournisseur;
     }
 
-    public function setFournisseur(Fournisseur $fournisseur): self
+    public function setFournisseur(?fournisseur $fournisseur): self
     {
         $this->fournisseur = $fournisseur;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
-    {
-        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -119,6 +105,18 @@ class Delivery
         return $this;
     }
 
+    public function getColis(): ?int
+    {
+        return $this->colis;
+    }
+
+    public function setColis(int $colis): self
+    {
+        $this->colis = $colis;
+
+        return $this;
+    }
+
     public function getFrais(): ?int
     {
         return $this->frais;
@@ -131,14 +129,14 @@ class Delivery
         return $this;
     }
 
-    public function getColis(): ?int
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
-        return $this->colis;
+        return $this->createdAt;
     }
 
-    public function setColis(int $colis): self
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
-        $this->colis = $colis;
+        $this->createdAt = $createdAt;
 
         return $this;
     }

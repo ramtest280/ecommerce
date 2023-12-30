@@ -8,14 +8,14 @@
 	<h1 class="text-center mt-5">Creation de Trondro</h1>
 	<div class="container">
 		{{ form_start(form) }}
-		<div class="md-4" style="margin-left: 27em;">
+		<div class="form-group mt-3">
 			{{ form_widget(form.anarana) }}
-			<button class="btn btn-primary">{{ button_label|default('Trondr-eo') }}</button>
-		</div>
-	</div>
-	{{ form_end(form) }}
-	<center>
-		<a href="{{ path('trondro')}}">Liste des trondro</a>
-	</center>
+			<div class="text-center mt-3 ">
+				<button class="btn btn-primary">{{ button_label|default('Trondr-eo') }}</button>
+				<a href="{{ path('trondro')}}" class="btn btn-info">Liste des trondro</a>
 
-{% endblock %}
+			</div>
+		</div>
+		{{ form_end(form) }}
+
+	{% endblock %}
