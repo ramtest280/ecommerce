@@ -2,14 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\Client;
 use App\Entity\Entana;
-use App\Entity\Produit;
 use App\Form\EntanaType;
 use App\Repository\EntanaRepository;
-use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,12 +14,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class EntanaController extends AbstractController
 {
     /**
-     * @Route("/", name="calcul_entana")
+     * @Route("/", name="calcul_produits")
      */
     public function index(Request $request, EntityManagerInterface $em): Response
     {
         $entana = new Entana();
-
         $form = $this->createForm(EntanaType::class, $entana);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -36,7 +31,7 @@ class EntanaController extends AbstractController
             // Reste = Total - Avance
             $entana->setReste($entana->getTotal() - $entana->getAvance());
 
-            // Facon d'automatiser la date de creation
+            // Facon d'automatiser la date de creation des entana
             $entana->setCreatedAt(new \DateTimeImmutable());
 
             $em->persist($entana);
@@ -52,7 +47,7 @@ class EntanaController extends AbstractController
     }
 
     /**
-     * @Route("/entana/liste", name="liste_entana")
+     * @Route("/entana/liste", name="liste_produits")
      */
     public function listeEntana(EntanaRepository $entanaRepository)
     {

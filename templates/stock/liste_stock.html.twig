@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des stocks
+{% endblock %}
+
+{% block body %}
+	{% include 'partials/navbar.html.twig' %}
+	<h1 class="text-center mt-3 mb-3">
+		Stockage des produits
+	</h1>
+
+
+	<div class="container">
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Date</th>
+						<th scope="col">Trondro</th>
+						<th scope="col">Poids(KG)</th>
+						<th scope="col">Prix Unitaire(AR)</th>
+						<th scope="col">Etat</th>
+						<th scope="col">Fournisseur</th>
+						<th scope="col">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for stockage in stock %}
+						<tr>
+							<td>{{ stockage.createdAt | date('d-m-Y')}}</td>
+							<td scope="row">{{ stockage.Trondro}}</td>
+							<td scope="row">{{ stockage.Poids}}</td>
+							<td scope="row">{{ stockage.prixunitaire}}</td>
+							<td scope="row">{{ stockage.etat}}</td>
+							<td scope="row">{{ stockage.Fournisseur}}</td>
+							<td>
+								<a href="#" class="btn btn-info">Informations</a>
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="3">no records found</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+
+
+{% endblock %}

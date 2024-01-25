@@ -9,17 +9,14 @@
 	<div class="container">
 
 		{{ form_start(form) }}
-		<div class="md-4" style="margin-left: 27em;">
+		<div class="form-group">
 			{{ form_widget(form.anarana) }}
-			<button class="btn btn-primary">{{ button_label|default('Fournisseur-eo') }}</button>
+			<div class="text-center mt-3">
+				<button class="btn btn-primary">{{ button_label|default('Fournisseur-eo') }}</button>
+				<a href="{{ path('liste_fournisseur') }}" class="btn btn-info">Voir la liste</a>
+			</div>
 		</div>
-
-
 		{{ form_end(form) }}
-		<center>
-			<a href="{{ path('liste_fournisseur') }}">Voir la liste</a>
-		</center>
-
 	</div>
 
 {% endblock %}

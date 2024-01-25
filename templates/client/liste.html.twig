@@ -7,36 +7,33 @@
 	{% include 'partials/navbar.html.twig' %}
 	<h1 class="text-center mt-3 mb-3">Liste des clients</h1>
 	<center>
-		<a href="{{ path('app_client_new') }}" class="btn btn-primary">Ajouter un client</a>
+		<a href="{{ path('creation_client') }}" class="btn btn-primary">Ajouter un client</a>
 	</center>
 
-	<div class="container mx-5">
-
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th scope="col">Anarana</th>
-					<th scope="col">Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for client in clients %}
+	<div class="container">
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
 					<tr>
-						<td>{{ client.anarana }}</td>
-						<td class="justify-content-end">
-							<a href="#" class="btn btn-info">Informations</a>
-
-							<a href="{{ path('app_client_edit', {'id': client.id })}}" class="btn btn-success">Modifier</a>
-
-							<a href="{{ path('app_client_delete', {'id': client.id })}}" class="btn btn-danger" onsubmit="Voulez-vous vraiment supprimer le client">Supprimer</a>
-
-
-						</td>
-
+						<th scope="col">Anarana</th>
+						<th scope="col">Actions</th>
 					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+					{% for client in clients %}
+						<tr>
+							<td scope="row">{{ client.anarana }}</td>
+							<td>
+								<a href="#" class="btn btn-info">Informations</a>
+								<a href="{{ path('modification_clients', {'id': client.id })}}" class="btn btn-success">Modifier</a>
+
+							</td>
+
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
 	</div>
 
 

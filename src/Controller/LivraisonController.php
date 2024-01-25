@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Delivery;
 use App\Form\DeliveryType;
-use App\Form\LivraisonType;
 use App\Repository\DeliveryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,7 +19,7 @@ class LivraisonController extends AbstractController
     /**
      * @Route("/", name="creation_livraison")
      */
-    public function index(Request $request, EntityManagerInterface $em): Response
+    public function index(Request $request, DeliveryRepository $deliveryRepository, EntityManagerInterface $em): Response
     {
         $delivery = new Delivery();
         $form = $this->createForm(DeliveryType::class, $delivery);
@@ -28,9 +27,8 @@ class LivraisonController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $delivery->setCreatedAt(new \DateTimeImmutable());
-
-            $em->persist($delivery);
-            $em->flush();
+            $deliveryRepository->add($delivery, true);
+            $this->addFlash('success', 'Produit livrée avec succes');
 
             return $this->redirectToRoute('liste_livraison');
         }

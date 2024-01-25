@@ -13,8 +13,12 @@ class FournisseurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('anarana', TextType::class)
-        ;
+            ->add('anarana', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control mt-3',
+                    'placeholder' => 'Nom de votre fournisseur...'
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -6,7 +6,7 @@
 {% block body %}
 	{% include 'partials/navbar.html.twig' %}
 	<h1 class="text-center mt-3 mb-3">Page de Livraison</h1>
-	<div class="container  d-flex justify-content-center">
+	<div class="container d-flex justify-content-center">
 
 		{{ form_start(form) }}
 		<div class="form-group">
@@ -41,11 +41,8 @@
 				<label for="">Fournisseur</label>
 				{{ form_widget(form.fournisseur)}}
 			</div>
-
-
 		</div>
-
-		<button type="submit" class="btn btn-primary">Entaneo</button>
+		<button type="submit" class="btn btn-primary">Livrer 🛵</button>
 		{{ form_end(form) }}
 	</div>
 {% endblock %}

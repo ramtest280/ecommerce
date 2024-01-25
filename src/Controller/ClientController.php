@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ClientController extends AbstractController
 {
     /**
-     * @Route("/", name="app_client_index", methods={"GET"})
+     * @Route("/", name="liste_clients", methods={"GET"})
      */
     public function index(ClientRepository $clientRepository): Response
     {
@@ -26,7 +26,7 @@ class ClientController extends AbstractController
     }
 
     /**
-     * @Route("/ajouter", name="app_client_new", methods={"GET", "POST"})
+     * @Route("/ajouter", name="creation_client", methods={"GET", "POST"})
      */
     public function new(Request $request, ClientRepository $clientRepository): Response
     {
@@ -37,7 +37,7 @@ class ClientController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $clientRepository->add($client, true);
             $this->addFlash('success', 'Client ajouté avec succes');
-            return $this->redirectToRoute('app_client_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('liste_clients', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('client/ajout.html.twig', [
@@ -57,7 +57,7 @@ class ClientController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/editer", name="app_client_edit", methods={"GET", "POST"})
+     * @Route("/{id}/editer", name="modification_clients", methods={"GET", "POST"})
      */
     public function edit(Request $request, Client $client, ClientRepository $clientRepository): Response
     {
@@ -67,7 +67,7 @@ class ClientController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $clientRepository->add($client, true);
             $this->addFlash('notice', 'Client modifiée avec succes');
-            return $this->redirectToRoute('app_client_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('liste_clients', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('client/edit.html.twig', [
@@ -77,7 +77,7 @@ class ClientController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/supprimer/", name="app_client_delete", methods={"POST"})
+     * @Route("/{id}/supprimer/", name="suppression_clients", methods={"POST"})
      */
     public function delete(Request $request, Client $client, ClientRepository $clientRepository): Response
     {

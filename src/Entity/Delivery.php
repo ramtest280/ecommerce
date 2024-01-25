@@ -22,10 +22,6 @@ class Delivery
      */
     private $livreur;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=trondro::class)
-     */
-    private $trondro;
 
     /**
      * @ORM\OneToOne(targetEntity=fournisseur::class, cascade={"persist", "remove"})
@@ -52,6 +48,12 @@ class Delivery
      */
     private $createdAt;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Trondro::class, cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $trondro;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,17 +71,6 @@ class Delivery
         return $this;
     }
 
-    public function getTrondro(): ?trondro
-    {
-        return $this->trondro;
-    }
-
-    public function setTrondro(?trondro $trondro): self
-    {
-        $this->trondro = $trondro;
-
-        return $this;
-    }
 
     public function getFournisseur(): ?fournisseur
     {
@@ -137,6 +128,18 @@ class Delivery
     public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getTrondro(): ?Trondro
+    {
+        return $this->trondro;
+    }
+
+    public function setTrondro(Trondro $trondro): self
+    {
+        $this->trondro = $trondro;
 
         return $this;
     }

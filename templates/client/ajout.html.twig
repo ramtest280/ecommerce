@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nouvelle Client
+{% block title %}🤴Nouvelle Client
 {% endblock %}
 
 {% block body %}
@@ -13,7 +13,7 @@
 			{{ form_widget(form.anarana) }}
 			<div class="text-center">
 				<button class="btn btn-primary mt-4 mx-auto">{{ button_label|default('Client-eo') }}</button>
-				<a href="{{ path('app_client_index') }}" class="btn btn-info font-weight-bold mt-4">Voir la liste</a>
+				<a href="{{ path('liste_clients') }}" class="btn btn-info font-weight-bold mt-4">Voir la liste</a>
 
 			</div>
 		</div>
