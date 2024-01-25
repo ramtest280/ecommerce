@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Entana;
+use App\Entity\Etat;
 use App\Entity\Fournisseur;
 use App\Entity\Stock;
 use App\Entity\Trondro;
@@ -29,11 +30,8 @@ class StockType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
-            ->add('Etat', ChoiceType::class, [
-                'choices'  => [
-                    'Disponible' => true,
-                    'En rupture' => false,
-                ],
+            ->add('Etat', EntityType::class, [
+                'class' => Etat::class,
                 'attr' => [
                     'class' => 'form-control'
                 ]

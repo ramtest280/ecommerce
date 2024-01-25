@@ -18,7 +18,7 @@ class Stock
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity=Trondro::class, cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=Trondro::class)
      */
     private $trondro;
 
@@ -37,15 +37,16 @@ class Stock
      */
     private $poids;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $etat;
 
     /**
      * @ORM\Column(type="integer")
      */
     private $prix_unitaire;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Etat::class)
+     */
+    private $etat;
 
     public function getId(): ?int
     {
@@ -100,17 +101,7 @@ class Stock
         return $this;
     }
 
-    public function getEtat(): ?string
-    {
-        return $this->etat;
-    }
 
-    public function setEtat(string $etat): self
-    {
-        $this->etat = $etat;
-
-        return $this;
-    }
 
     public function getPrixUnitaire(): ?int
     {
@@ -120,6 +111,18 @@ class Stock
     public function setPrixUnitaire(int $prix_unitaire): self
     {
         $this->prix_unitaire = $prix_unitaire;
+
+        return $this;
+    }
+
+    public function getEtat(): ?Etat
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(?Etat $etat): self
+    {
+        $this->etat = $etat;
 
         return $this;
     }
