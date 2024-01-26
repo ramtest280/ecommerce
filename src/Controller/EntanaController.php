@@ -38,7 +38,7 @@ class EntanaController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'Entana calculée avec succes');
-            return $this->redirectToRoute('liste_entana');
+            return $this->redirectToRoute('liste_produits');
         }
 
         return $this->render('entana/ajout.html.twig', [
@@ -59,17 +59,16 @@ class EntanaController extends AbstractController
     }
 
     /**
-     * @Route("entana/{id}/editer", name="editer_entana")
+     * @Route("entana/{id}/editer", name="editer_produits")
      */
-    public function editer(Entana $entana, Request $request, EntanaRepository $entanaRepository): Response
+    public function editer(Entana $entana, Request $request, EntanaRepository $entanaRepository, EntityManagerInterface $em): Response
     {
+
 
         $form = $this->createForm(EntanaType::class, $entana);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entanaRepository->add($entana, true);
-
             // Calcul Total 
             // Total = Lanjany * Vidin'Iray
             $entana->setTotal($entana->getLanjany() * $entana->getVidiniray());
@@ -81,8 +80,11 @@ class EntanaController extends AbstractController
             // Facon d'automatiser la date de creation
             $entana->setCreatedAt(new \DateTimeImmutable());
 
+
+            $entanaRepository->add($entana, true);
+
             $this->addFlash('notice', 'Entana modifiée avec succes');
-            return $this->redirectToRoute('liste_entana');
+            return $this->redirectToRoute('liste_produits');
         }
 
         return $this->renderForm('entana/editer.html.twig', [

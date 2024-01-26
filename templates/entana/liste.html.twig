@@ -6,7 +6,7 @@
 {% block body %}
 	{% include 'partials/navbar.html.twig' %}
 	<h1 class="text-center mt-3 mb-3">
-		Liste des Entana
+		Liste des produits
 	</h1>
 
 
@@ -38,7 +38,7 @@
 							<td>{{ product.reste}}</td>
 							<td>{{ product.client}}</td>
 							<td>
-								<a href="#" class="btn btn-info">Informations</a>
+								<a href="{{ path('editer_produits', { 'id': product.id})}}" class="btn btn-info btn-sm">Modifier</a>
 							</td>
 						</tr>
 					{% else %}

@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des stocks
+{% block title %}
+	💵 Liste des stocks
 {% endblock %}
 
 {% block body %}
@@ -21,15 +22,15 @@
 						<th scope="col">Prix Unitaire(AR)</th>
 						<th scope="col">Etat</th>
 						<th scope="col">Fournisseur</th>
-						<th scope="col">Total</th>
-						<th scope="col">Gain</th>
+						<th scope="col">Total(AR)</th>
+						<th scope="col">Gain(AR)</th>
 						<th scope="col">Actions</th>
 					</tr>
 				</thead>
 				<tbody>
 					{% for stockage in stock %}
 						<tr>
-							<td>{{ stockage.createdAt | date('d-m-Y')}}</td>
+							<td scope="row">{{ stockage.createdAt | date('d-m-Y')}}</td>
 							<td scope="row">{{ stockage.Trondro}}</td>
 							<td scope="row">{{ stockage.Poids}}</td>
 							<td scope="row">{{ stockage.prixunitaire}}</td>
@@ -39,7 +40,8 @@
 							<td scope="row">{{ stockage.gain}}</td>
 
 							<td>
-								<a href="#" class="btn btn-dark btn-sm">Modifier</a>
+								<a href="{{ path('editer_stock', { 'id': stockage.id})}}" class="btn btn-dark btn-sm">Modifier</a>
+
 
 							</td>
 						</tr>
