@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Gestion des stocks
+{% block title %}Modification des stocks
 {% endblock %}
 
 {% block body %}
@@ -27,12 +27,6 @@
 				</div>
 
 				<div class="mb-3">
-					<label for="" class="me-5">Prix en Vente</label>
-					{{ form_widget(form.Prix_en_vente)}}
-				</div>
-
-
-				<div class="mb-3">
 					<label for="" class="me-5">Etat</label>
 					{{ form_widget(form.Etat)}}
 				</div>
@@ -44,9 +38,9 @@
 				</div>
 			</div>
 
-			<div class="mt-3 d-flex justify-content-center">
+			<div class="mt-3 d-flex justify-content-space">
 				<button type="submit" class="btn btn-primary">Stocker</button>
-
+				<a href="{{ path('liste_stock')}}" type="button" class="btn btn-secondary mx-3">Liste des stocks 💰</a>
 			</div>
 
 			{{ form_end(form) }}

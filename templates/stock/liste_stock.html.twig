@@ -21,6 +21,8 @@
 						<th scope="col">Prix Unitaire(AR)</th>
 						<th scope="col">Etat</th>
 						<th scope="col">Fournisseur</th>
+						<th scope="col">Total</th>
+						<th scope="col">Gain</th>
 						<th scope="col">Actions</th>
 					</tr>
 				</thead>
@@ -33,8 +35,12 @@
 							<td scope="row">{{ stockage.prixunitaire}}</td>
 							<td scope="row">{{ stockage.etat}}</td>
 							<td scope="row">{{ stockage.Fournisseur}}</td>
+							<td scope="row">{{ stockage.total}}</td>
+							<td scope="row">{{ stockage.gain}}</td>
+
 							<td>
-								<a href="#" class="btn btn-secondary">Modifier</a>
+								<a href="#" class="btn btn-dark btn-sm">Modifier</a>
+
 							</td>
 						</tr>
 					{% else %}

@@ -48,6 +48,21 @@ class Stock
      */
     private $etat;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $total;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $gain;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $prixenvente;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -123,6 +138,42 @@ class Stock
     public function setEtat(?Etat $etat): self
     {
         $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getTotal(): ?int
+    {
+        return $this->total;
+    }
+
+    public function setTotal(int $total): self
+    {
+        $this->total = $total;
+
+        return $this;
+    }
+
+    public function getGain(): ?int
+    {
+        return $this->gain;
+    }
+
+    public function setGain(int $gain): self
+    {
+        $this->gain = $gain;
+
+        return $this;
+    }
+
+    public function getPrixenvente(): ?int
+    {
+        return $this->prixenvente;
+    }
+
+    public function setPrixenvente(int $prixenvente): self
+    {
+        $this->prixenvente = $prixenvente;
 
         return $this;
     }

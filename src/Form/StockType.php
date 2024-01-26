@@ -30,6 +30,11 @@ class StockType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
+            ->add('Prix_en_vente', MoneyType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
             ->add('Etat', EntityType::class, [
                 'class' => Etat::class,
                 'attr' => [
