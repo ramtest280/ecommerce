@@ -22,17 +22,19 @@ class StockType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Poids', IntegerType::class, [
+            ->add('Poids', NumberType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ]
             ])
             ->add('Prix_unitaire', MoneyType::class, [
+                'currency' => 'MGA',
                 'attr' => [
                     'class' => 'form-control'
                 ]
             ])
             ->add('Prix_en_vente', MoneyType::class, [
+                'currency' => 'MGA',
                 'attr' => [
                     'class' => 'form-control'
                 ]

@@ -13,7 +13,10 @@
 			<div class="form-group">
 				<div class="mb-3">
 					<label for="" class="me-5">Trondro</label>
-					{{ form_widget(form.Trondro)}}
+					{{ form_widget(form.Trondro, {'attr' : { 'disabled': 'disabled'} })}}
+
+					
+					
 				</div>
 
 				<div class="mb-3">
@@ -23,12 +26,12 @@
 
 				<div class="mb-3">
 					<label for="" class="me-5">Prix Unitaire</label>
-					{{ form_widget(form.Prix_unitaire)}}
+					{{ form_widget(form.Prix_unitaire, {'attr' : {'disabled' : 'disabled'} })}}
 				</div>
 
 				<div class="mb-3">
 					<label for="" class="me-5">Prix en Vente</label>
-					{{ form_widget(form.Prix_en_vente)}}
+					{{ form_widget(form.Prix_en_vente, {'attr' : {'disabled' : 'disabled'} })}}
 				</div>
 
 
@@ -40,7 +43,7 @@
 
 				<div class="mb-3">
 					<label class="me-5">Fournisseur</label>
-					{{ form_widget(form.Fournisseur)}}
+					{{ form_widget(form.Fournisseur, {'attr' : {'disabled' : 'disabled'} })}}
 				</div>
 			</div>
 

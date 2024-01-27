@@ -68,15 +68,6 @@ class StockController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $stock->setCreatedAt(new DateTimeImmutable());
 
-            // CALCUL TOTAL
-            // TOTAL = PRIX * PRIX UNITAIRE
-            $stock->setTotal($stock->getPrixUnitaire() * $stock->getPoids());
-
-            // GAIN POTENTIEL
-            // GAIN = (POIDS * 34000) - TOTAL
-            $stock->setGain(($stock->getPoids() * $stock->getPrixenvente()) - $stock->getTotal());
-            $StockRepository->add($stock, true);
-
             $this->addFlash('notice', 'Etat du produit modifié avec succes');
             return $this->redirectToRoute('liste_stock');
         }
