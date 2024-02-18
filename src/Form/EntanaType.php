@@ -20,15 +20,18 @@ class EntanaType extends AbstractType
         $builder
             ->add('lanjany', NumberType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => 'Nom du trondro...'
                 ]
             ])
             ->add('vidiniray', MoneyType::class, [
+                'currency' => 'MGA',
                 'attr' => [
                     'class' => 'form-control'
                 ]
             ])
             ->add('avance', MoneyType::class, [
+                'currency' => 'MGA',
                 'attr' => [
                     'class' => 'form-control'
                 ]

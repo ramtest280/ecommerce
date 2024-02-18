@@ -5,13 +5,12 @@
 {% endblock %}
 
 {% block body %}
-	{% include 'partials/navbar.html.twig' %}
 	<h1 class="text-center mt-3 mb-3">
 		Stockage des produits
 	</h1>
 
 
-	<div class="container">
+	<div class="container-fluid">
 		<div class="table-responsive">
 			<table class="table table-striped">
 				<thead>
@@ -21,6 +20,7 @@
 						<th scope="col">Poids(KG)</th>
 						<th scope="col">Prix Unitaire(AR)</th>
 						<th scope="col">Etat</th>
+						<th scope="col">Paiement</th>
 						<th scope="col">Fournisseur</th>
 						<th scope="col">Total(AR)</th>
 						<th scope="col">Gain(AR)</th>
@@ -35,13 +35,13 @@
 							<td scope="row">{{ stockage.Poids}}</td>
 							<td scope="row">{{ stockage.prixunitaire}}</td>
 							<td scope="row">{{ stockage.etat}}</td>
+							<td scope="row">{{ stockage.Paiement}}</td>
 							<td scope="row">{{ stockage.Fournisseur}}</td>
 							<td scope="row">{{ stockage.total}}</td>
 							<td scope="row">{{ stockage.gain}}</td>
 
 							<td>
 								<a href="{{ path('editer_stock', { 'id': stockage.id})}}" class="btn btn-dark btn-sm">Modifier</a>
-
 
 							</td>
 						</tr>

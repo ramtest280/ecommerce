@@ -15,8 +15,8 @@ class TrondroType extends AbstractType
         $builder
             ->add('anarana', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control border b-4',
-                    'placeholder' => 'Nom du trondro...'
+                    'class' => 'form-control border b-4 w-100',
+                    'placeholder' => 'Nom du produit...'
                 ]
             ]);
     }

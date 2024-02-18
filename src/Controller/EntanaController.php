@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class EntanaController extends AbstractController
 {
     /**
@@ -61,25 +62,12 @@ class EntanaController extends AbstractController
     /**
      * @Route("entana/{id}/editer", name="editer_produits")
      */
-    public function editer(Entana $entana, Request $request, EntanaRepository $entanaRepository, EntityManagerInterface $em): Response
+    public function editer(Entana $entana, Request $request, EntanaRepository $entanaRepository): Response
     {
-
-
         $form = $this->createForm(EntanaType::class, $entana);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Calcul Total 
-            // Total = Lanjany * Vidin'Iray
-            $entana->setTotal($entana->getLanjany() * $entana->getVidiniray());
-
-            // Calcul Reste 
-            // Reste = Total - Avance
-            $entana->setReste($entana->getTotal() - $entana->getAvance());
-
-            // Facon d'automatiser la date de creation
-            $entana->setCreatedAt(new \DateTimeImmutable());
-
 
             $entanaRepository->add($entana, true);
 

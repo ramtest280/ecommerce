@@ -4,9 +4,8 @@
 {% endblock %}
 
 {% block body %}
-	{% include 'partials/navbar.html.twig' %}
 	<h1 class="text-center mt-3 mb-10">Gestion des stocks</h1>
-	<div class="container mt-4 d-flex justify-content-center">
+	<div class="container-fluid mt-4 d-flex justify-content-center">
 
 		<div class="mx-3">
 			{{ form_start(form) }}
@@ -35,6 +34,11 @@
 				<div class="mb-3">
 					<label for="" class="me-5">Etat</label>
 					{{ form_widget(form.Etat)}}
+				</div>
+
+				<div class="mb-3">
+					<label for="" class="me-5">Paiement</label>
+					{{ form_widget(form.Paiement)}}
 				</div>
 
 
