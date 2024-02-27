@@ -6,6 +6,7 @@ use App\Entity\Entana;
 use App\Form\EntanaType;
 use App\Repository\EntanaRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,12 +51,18 @@ class EntanaController extends AbstractController
     /**
      * @Route("/entana/liste", name="liste_produits")
      */
-    public function listeEntana(EntanaRepository $entanaRepository)
+    public function listeEntana(Request $request, EntanaRepository $entanaRepository, PaginatorInterface $paginatorInterface)
     {
         $entana = $entanaRepository->findAll();
+        $entana = $paginatorInterface->paginate(
+            $entana,
+            $request->query->getInt('page', 3),
+            4
+        );
 
         return $this->render('entana/liste.html.twig', [
             'entana' => $entana,
+            'pagination' => $entana
         ]);
     }
 
