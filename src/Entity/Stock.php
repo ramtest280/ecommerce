@@ -63,6 +63,13 @@ class Stock
      */
     private $prixenvente;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Paiement::class, inversedBy="stocks")
+     */
+    private $Paiement;
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -174,6 +181,18 @@ class Stock
     public function setPrixenvente(int $prixenvente): self
     {
         $this->prixenvente = $prixenvente;
+
+        return $this;
+    }
+
+    public function getPaiement(): ?Paiement
+    {
+        return $this->Paiement;
+    }
+
+    public function setPaiement(?Paiement $Paiement): self
+    {
+        $this->Paiement = $Paiement;
 
         return $this;
     }

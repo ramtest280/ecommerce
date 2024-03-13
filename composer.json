@@ -11,6 +11,7 @@
         "doctrine/doctrine-bundle": "^2.7",
         "doctrine/doctrine-migrations-bundle": "^3.1",
         "doctrine/orm": "^2.15",
+        "knplabs/knp-paginator-bundle": "*",
         "php-flasher/flasher-notyf-symfony": "*",
         "php-flasher/flasher-symfony": "*",
         "phpdocumentor/reflection-docblock": "^5.3",

@@ -26,8 +26,8 @@ class DeliveryType extends AbstractType
             ])
             ->add('permis', ChoiceType::class, [
                 'choices'  => [
-                    'Oui' => true,
-                    'Non' => false,
+                    'Yes' => true,
+                    'No' => false,
                 ],
                 'attr' => [
                     'class' => 'form-control'
@@ -54,7 +54,7 @@ class DeliveryType extends AbstractType
                 ]
 
             )
-            ->add('fournisseur', EntityType::class, [
+            ->add('Fournisseur', EntityType::class, [
                 'class' => Fournisseur::class,
                 'attr' => [
                     'class' => 'form-control'

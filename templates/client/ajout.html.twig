@@ -4,7 +4,6 @@
 {% endblock %}
 
 {% block body %}
-	{% include 'partials/navbar.html.twig' %}
 	<h1 class="text-center mt-5">Création de clients</h1>
 	<div class="container">
 
@@ -20,5 +19,7 @@
 		{{ form_end(form) }}
 
 	</div>
+	{% include 'partials/footer.html.twig' %}
+
 
 {% endblock %}

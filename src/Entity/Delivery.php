@@ -24,7 +24,7 @@ class Delivery
 
 
     /**
-     * @ORM\OneToOne(targetEntity=fournisseur::class, cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=Fournisseur::class)
      */
     private $fournisseur;
 
@@ -49,8 +49,7 @@ class Delivery
     private $createdAt;
 
     /**
-     * @ORM\OneToOne(targetEntity=Trondro::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Trondro::class)
      */
     private $trondro;
 
@@ -72,12 +71,12 @@ class Delivery
     }
 
 
-    public function getFournisseur(): ?fournisseur
+    public function getFournisseur(): ?Fournisseur
     {
         return $this->fournisseur;
     }
 
-    public function setFournisseur(?fournisseur $fournisseur): self
+    public function setFournisseur(?Fournisseur $fournisseur): self
     {
         $this->fournisseur = $fournisseur;
 

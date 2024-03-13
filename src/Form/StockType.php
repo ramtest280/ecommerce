@@ -5,13 +5,11 @@ namespace App\Form;
 use App\Entity\Entana;
 use App\Entity\Etat;
 use App\Entity\Fournisseur;
+use App\Entity\Paiement;
 use App\Entity\Stock;
 use App\Entity\Trondro;
-use Doctrine\DBAL\Types\FloatType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -45,6 +43,13 @@ class StockType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
+            ->add('Paiement', EntityType::class, [
+                'class' => Paiement::class,
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+
             ->add('Trondro', EntityType::class, [
                 'class' => Trondro::class,
                 'attr' => [
