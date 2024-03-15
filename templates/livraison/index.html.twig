@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page de Livraison
+{% endblock %}
+
+{% block body %}
+	{% include 'partials/navbar.html.twig' %}
+	<h1 class="text-center mt-3 mb-3">Page de Livraison</h1>
+	<div class="container d-flex justify-content-center">
+
+		{{ form_start(form) }}
+		<div class="form-group">
+			<div class="mb-3">
+				<label for="">Livreur</label>
+				{{ form_widget(form.livreur)}}
+			</div>
+
+			<div class="mb-3">
+				<label for="" class="me-5">Trondro</label>
+				{{ form_widget(form.Trondro)}}
+			</div>
+
+
+			<div class="mb-3">
+				<label for="">Frais</label>
+				{{ form_widget(form.frais)}}
+			</div>
+
+			<div class="mb-3">
+				<label for="">Permis</label>
+				{{ form_widget(form.permis)}}
+			</div>
+
+
+			<div class="mb-3">
+				<label for="">Colis</label>
+				{{ form_widget(form.colis)}}
+			</div>
+
+			<div class="mb-3">
+				<label for="">Fournisseur</label>
+				{{ form_widget(form.fournisseur)}}
+			</div>
+		</div>
+		<button type="submit" class="btn btn-primary">Livrer 🛵</button>
+		{{ form_end(form) }}
+	</div>
+{% endblock %}

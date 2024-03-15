@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification des fornisseurs
+{% endblock %}
+
+{% block body %}
+	{% include 'partials/navbar.html.twig' %}
+	<h1 class="text-center mt-5 mb-5">Modification de Fournisseurs</h1>
+	<div class="container d-flex justify-content-center">
+
+
+		{{ form_start(form) }}
+		<div class="form-group">
+			{{ form_widget(form.anarana) }}
+			<div class="text-center">
+				<button class="btn btn-primary">{{ button_label|default('Mise a jour') }}</button>
+			</div>
+		</div>
+		{{ form_end(form) }}
+	</div>
+
+{% endblock %}

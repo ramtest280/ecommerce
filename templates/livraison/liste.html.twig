@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des livraisons
+{% endblock %}
+
+{% block body %}
+	{% include 'partials/navbar.html.twig' %}
+	<h1 class="text-center mt-3 mb-3">Liste des livraisons</h1>
+	<div class="container">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Livreur</th>
+					<th scope="col">Frais (AR)</th>
+					<th scope="col">Colis</th>
+					<th scope="col">Trondro</th>
+					<th scope="col">Fournisseur</th>
+					<th scope="col">Date</th>
+					<th scope="col">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for livraison in delivery %}
+					<tr>
+						<td scope="row">{{ delivery.livreur}}</td>
+						<td>{{ delivery.frais}}</td>
+						<td>{{ delivery.colis}}</td>
+						<td>{{ delivery.Trondro}}</td>
+						<td>{{ delivery.fournisseur}}</td>
+						<td>{{ delivery.createdAt | date('d-m-Y')}}</td>
+						<td>
+							<a href="#" class="btn btn-info">Informations</a>
+
+							<a href="{{ path('editer_entana' , {'id': delivery.id }) }}" class="btn btn-success">Modifier</a>
+
+
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="3">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<a href="{{ path('liste_entana')}}">Revenir</a>
+
+
+{% endblock %}

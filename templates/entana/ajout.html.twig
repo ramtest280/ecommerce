@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}⚖️ Calcul un nouveau compte
+{% endblock %}
+
+{% block body %}
+	{% include 'partials/navbar.html.twig' %}
+	<h1 class="text-center mt-3 mb-10">Calcul des produits</h1>
+	<div class="container mt-4 d-flex justify-content-center">
+
+		<div class="mx-3">
+			{{ form_start(form) }}
+			<div class="form-group">
+				<div class="mb-3">
+					<label for="" class="me-5">Produit</label>
+					{{ form_widget(form.trondro)}}
+				</div>
+
+				<div class="mb-3">
+					<label for="" class="me-5">Poids</label>
+					{{ form_widget(form.lanjany)}}
+
+				</div>
+
+				<div class="mb-3">
+					<label for="">Prix Unitaire</label>
+					{{ form_widget(form.vidiniray)}}
+				</div>
+
+				<div class="mb-3">
+					<label for="">Avance</label>
+					{{ form_widget(form.avance)}}
+
+				</div>
+
+				<div class="mb-3">
+					<label class="me-5">Client</label>
+					{{ form_widget(form.client)}}
+				</div>
+			</div>
+
+			<div class="mt-3 d-flex justify-content-center">
+				<button type="submit" class="btn btn-primary">Calculez 💵</button>
+			</div>
+
+			{{ form_end(form) }}
+
+		</div>
+	</div>
+{% endblock %}

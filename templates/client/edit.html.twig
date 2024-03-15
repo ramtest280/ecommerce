@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer Client
+{% endblock %}
+
+{% block body %}
+	{% include 'partials/navbar.html.twig' %}
+
+	<h1 class="text-center mt-5">Modification de clients</h1>
+	<div class="container">
+
+		{{ form_start(form) }}
+		<div class="form-group mt-3">
+			{{ form_widget(form.anarana) }}
+			<div class="text-center">
+				<button class="btn btn-primary mt-4 mx-auto">{{ button_label|default('Modifier') }}</button>
+
+			</div>
+		</div>
+		{{ form_end(form) }}
+	{% endblock %}

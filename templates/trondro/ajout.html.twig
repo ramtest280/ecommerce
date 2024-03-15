@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un Trondro
+{% endblock %}
+
+{% block body %}
+	{% include 'partials/navbar.html.twig' %}
+	<h1 class="text-center mt-5">Creation de Trondro</h1>
+	<div class="container">
+		{{ form_start(form) }}
+		<div class="form-group mt-3">
+			{{ form_widget(form.anarana) }}
+			<div class="text-center mt-3 ">
+				<button class="btn btn-primary">{{ button_label|default('Trondr-eo') }}</button>
+				<a href="{{ path('trondro')}}" class="btn btn-info">Liste des trondro</a>
+
+			</div>
+		</div>
+		{{ form_end(form) }}
+
+	{% endblock %}

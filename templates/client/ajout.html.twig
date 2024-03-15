@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}🤴Nouvelle Client
+{% endblock %}
+
+{% block body %}
+	{% include 'partials/navbar.html.twig' %}
+	<h1 class="text-center mt-5">Création de clients</h1>
+	<div class="container">
+
+		{{ form_start(form) }}
+		<div class="form-group mt-3">
+			{{ form_widget(form.anarana) }}
+			<div class="text-center">
+				<button class="btn btn-primary mt-4 mx-auto">{{ button_label|default('Client-eo') }}</button>
+				<a href="{{ path('liste_clients') }}" class="btn btn-info font-weight-bold mt-4">Voir la liste</a>
+
+			</div>
+		</div>
+		{{ form_end(form) }}
+
+	</div>
+
+{% endblock %}
