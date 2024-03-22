@@ -56,11 +56,7 @@ class Entana
      */
     private $trondro;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Paiement::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $paiement;
+    
 
 
     public function getId(): ?int
@@ -167,15 +163,5 @@ class Entana
         return $this;
     }
 
-    public function getPaiement(): ?Paiement
-    {
-        return $this->paiement;
-    }
-
-    public function setPaiement(?Paiement $paiement): self
-    {
-        $this->paiement = $paiement;
-
-        return $this;
-    }
+    
 }

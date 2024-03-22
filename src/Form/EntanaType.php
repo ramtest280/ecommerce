@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Client;
 use App\Entity\Entana;
+use App\Entity\Paiement;
 use App\Entity\Trondro;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -42,6 +43,12 @@ class EntanaType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
+            // ->add('Paiement', EntityType::class, [
+            //     'class' => Paiement::class,
+            //     'attr' => [
+            //         'class' => 'form-control'
+            //     ]
+            // ])
             ->add('client', EntityType::class, [
                 'class' => Client::class,
                 'attr' => [
