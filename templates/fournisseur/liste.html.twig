@@ -5,6 +5,9 @@
 
 {% block body %}
 	<h1 class="text-center mt-3 mb-3">Liste des Fournisseurs</h1>
+	<center>
+		<a href="{{ path('creation_client') }}" class="btn btn-primary">Ajouter un fournisseur</a>
+	</center>
 	<div class="container">
 		<table class="table table-striped">
 			<thead>
@@ -37,8 +40,5 @@
 			</tbody>
 		</table>
 	</div>
-
-
-	<a href="{{ path('creation_fournisseur') }}">Creation fournisseurs</a>
 
 {% endblock %}

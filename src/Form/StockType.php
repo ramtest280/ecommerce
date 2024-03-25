@@ -22,19 +22,22 @@ class StockType extends AbstractType
         $builder
             ->add('Poids', NumberType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => 'POIDS...'
                 ]
             ])
             ->add('Prix_unitaire', MoneyType::class, [
-                'currency' => 'MGA',
+                'currency' => 'FMG',
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => 'PRIX UNITAIRE...'
                 ]
             ])
             ->add('Prix_en_vente', MoneyType::class, [
                 'currency' => 'MGA',
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => 'PRIX DE VENTE...'
                 ]
             ])
             ->add('Etat', EntityType::class, [

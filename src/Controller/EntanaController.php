@@ -55,13 +55,14 @@ class EntanaController extends AbstractController
     {
         $entana = $entanaRepository->findAll();
         $entana = $paginatorInterface->paginate(
+            // $entanaRepository->findAll(),
             $entana,
             $request->query->getInt('page', 3),
-            4
+            10
         );
 
         return $this->render('entana/liste.html.twig', [
-            'entana' => $entana,
+            'produits' => $entana,
             'pagination' => $entana
         ]);
     }

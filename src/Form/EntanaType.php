@@ -22,19 +22,21 @@ class EntanaType extends AbstractType
             ->add('lanjany', NumberType::class, [
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Nom du trondro...'
+                    'placeholder' => 'POIDS...'
                 ]
             ])
             ->add('vidiniray', MoneyType::class, [
                 'currency' => 'MGA',
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => 'PRIX_UNITAIRE...'
                 ]
             ])
             ->add('avance', MoneyType::class, [
                 'currency' => 'MGA',
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => 'AVANCE...'
                 ]
             ])
             ->add('trondro', EntityType::class, [
@@ -43,12 +45,12 @@ class EntanaType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
-            // ->add('Paiement', EntityType::class, [
-            //     'class' => Paiement::class,
-            //     'attr' => [
-            //         'class' => 'form-control'
-            //     ]
-            // ])
+            ->add('Paiement', EntityType::class, [
+                'class' => Paiement::class,
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
             ->add('client', EntityType::class, [
                 'class' => Client::class,
                 'attr' => [

@@ -29,6 +29,13 @@ class Paiement
      */
     private $stocks;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Entana::class, mappedBy="Entana")
+     */
+    private $entana;
+
+
+
     public function __construct()
     {
         $this->stocks = new ArrayCollection();
@@ -80,6 +87,36 @@ class Paiement
             // set the owning side to null (unless already changed)
             if ($stock->getPaiement() === $this) {
                 $stock->setPaiement(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Stock>
+     */
+    public function getEntana(): Collection
+    {
+        return $this->entana;
+    }
+
+    public function addEntana(Entana $entana): self
+    {
+        if (!$this->entana->contains($entana)) {
+            $this->entana[] = $entana;
+            $entana->setPaiement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEntana(Entana $entana): self
+    {
+        if ($this->entana->removeElement($entana)) {
+            // set the owning side to null (unless already changed)
+            if ($entana->getPaiement() === $this) {
+                $entana->setPaiement(null);
             }
         }
 

@@ -7,7 +7,6 @@
 {% block body %}
 	<h1 class="text-center mt-3 mb-3">
 		Liste des produits
-
 	</h1>
 
 
@@ -23,13 +22,13 @@
 						<th scope="col">Total(AR)</th>
 						<th scope="col">Avance(AR)</th>
 						<th scope="col">Reste</th>
-						{# <th scope="col">Paiements</th> #}
+						<th scope="col">Paiements</th>
 						<th scope="col">Client</th>
 						<th scope="col">Actions</th>
 					</tr>
 				</thead>
 				<tbody>
-					{% for product in entana %}
+					{% for product in produits %}
 						<tr>
 							<td>{{ product.createdAt | date('d-m-Y')}}</td>
 							<td scope="row">{{ product.trondro}}</td>
@@ -38,7 +37,7 @@
 							<td scope="row">{{ product.total}}</td>
 							<td>{{ product.avance}}</td>
 							<td>{{ product.reste}}</td>
-							{# <td>{{ product.paiement}}</td> #}
+							<td>{{ product.paiement}}</td>
 							<td>{{ product.client}}</td>
 							<td>
 								<a href="{{ path('editer_produits', { 'id': product.id})}}" class="btn btn-info btn-sm">Modifier</a>

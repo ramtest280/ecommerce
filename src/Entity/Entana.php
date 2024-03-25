@@ -56,6 +56,23 @@ class Entana
      */
     private $trondro;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Paiement::class)
+     */
+    private $paiement;
+
+    public function getPaiement(): ?Paiement
+    {
+        return $this->paiement;
+    }
+
+    public function setPaiement(?Paiement $paiement): self
+    {
+        $this->paiement = $paiement;
+
+        return $this;
+    }
+
     
 
 

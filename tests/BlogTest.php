@@ -12,5 +12,6 @@ class BlogTest extends PantherTestCase
         $crawler = $client->request('GET', '/');
 
         $this->assertSelectorTextContains('h1', 'Hello World');
+        // $this->assertSelectorAttributeContains('h2');
     }
 }
